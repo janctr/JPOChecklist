@@ -1,0 +1,28 @@
+@media print {
+    * {
+    }
+
+    body {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .content {
+        /* width: calc(100% - 1in); */
+    }
+
+    .qv-object-content {
+        display: flex;
+        justify-content: center;
+    }
+
+    #gantt-chart {
+        /* height: 1754px; */
+        /* width: 100%; */
+        /* transform: rotate(-90deg); */
+    }
+
+    .no-print {
+        display: none;
+    }
+}
