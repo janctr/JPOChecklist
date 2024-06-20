@@ -57,39 +57,75 @@ require(['js/qlik'], function (qlik) {
         },
         {
             elementId: 'receipt-table',
-            objectId: '04b06636-05bf-43c1-9dc3-69f6698727fb',
+            objectId: '2b3af1ff-178e-442b-8a0b-e2fd11434d52',
+        },
+        {
+            elementId: 'receipt-notes-table',
+            objectId: '624538bc-0aab-41cf-b3b0-958c27dbe0d2',
         },
         {
             elementId: 'refuel-table',
-            objectId: '3fd19103-1529-4ab0-8bd3-860f4f44ac6a',
+            objectId: '43b67960-89b1-4ec3-919f-01b4e0297232',
+        },
+        {
+            elementId: 'refuel-notes-table',
+            objectId: '86cbee58-b83e-4f7a-b246-320d64a2329d',
         },
         {
             elementId: 'bulk-table',
-            objectId: '2fa96355-5853-4400-8bad-491996f86b39',
+            objectId: '291b7968-ee31-4673-bc89-546dc70f44cb',
+        },
+        {
+            elementId: 'bulk-notes-table',
+            objectId: '64e63436-8b8a-4aed-9c5e-6d46fdbfd980',
         },
         {
             elementId: 'fillstand-table',
-            objectId: '9a39e7ae-5653-4702-b804-1c87c412c0d6',
+            objectId: 'ef2e4e70-a406-4513-add5-7732f7ec20a2',
+        },
+        {
+            elementId: 'fillstand-notes-table',
+            objectId: 'b2c9e8e8-c5bc-4d6e-a196-ae1e6e84fe0c',
         },
         {
             elementId: 'hydrant-table',
-            objectId: '72163044-2da5-49c3-8fe9-2f015019ab41',
+            objectId: '62cecf67-f9d6-4502-a8fe-43b2c43af429',
+        },
+        {
+            elementId: 'hydrant-notes-table',
+            objectId: '0daadd4c-88de-47f9-bb8f-8e4ced975d39',
         },
         {
             elementId: 'mobile-table',
-            objectId: 'b35f8c08-2a61-44ca-aec6-3c2b2efc1864',
+            objectId: '5466f73b-2c85-431f-b9c2-5a257c7b12e8',
+        },
+        {
+            elementId: 'mobile-notes-table',
+            objectId: '9bb28df5-ceb3-408c-a0e6-7d45de95af73',
         },
         {
             elementId: 'additive-table',
-            objectId: 'a80cb9a4-3cc9-4df9-b856-85537ae6d28b',
+            objectId: '8b9b69e1-4db3-4e84-83e7-5d81e03b817d',
+        },
+        {
+            elementId: 'additive-notes-table',
+            objectId: '5cdf28f0-a0d8-4ecd-983b-939052f80740',
         },
         {
             elementId: 'sus-max-table',
             objectId: 'bc2d0186-40ab-4241-8140-d19ab2bee4b8',
         },
         {
+            elementId: 'sus-max-notes-table',
+            objectId: '1a04e2ad-7622-4309-b541-938b560394eb',
+        },
+        {
             elementId: 'truck-table',
-            objectId: 'bd997755-0f10-470f-8078-0bc5722f945d',
+            objectId: '0431668a-9c05-484a-9a14-471fdfc7aeb3',
+        },
+        {
+            elementId: 'truck-notes-table',
+            objectId: '939ce16a-2760-4c0f-9501-3bbff2920d4e',
         },
         { elementId: 'miscallaneous-notes', objectId: 'DhvUgt' },
     ].forEach((o) => {
