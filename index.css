@@ -134,27 +134,61 @@
     height: 50px;
 }
 
-/* #poc-table,
-#receipt-table,
-#refuel-table,
-#bulk-table,
-#fillstand-table,
-#hydrant-table,
-#mobile-table,
-#additive-table,
-#sus-max-table,
-#truck-table,
-#miscallaneous-notes */
+h1.section-header {
+    font-size: 2rem;
+}
+h2.section-header {
+    font-size: 1.75rem;
+}
 
+/***********************/
 .jpo-table {
-    height: 300px;
+    /* height: 300px; */
 
     /* Style to center loader */
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
     /**************************/
+
+    /* Font styles */
+    font-size: 0.9rem;
 }
+
+.jpo-table * {
+}
+
+.jpo-table > table td,
+.jpo-table > table th {
+    padding: 0.25rem;
+}
+
+.jpo-table > table th {
+    background-color: #162a4b;
+    color: #fff;
+}
+
+.jpo-table > table tr {
+    border-bottom: 1px solid #dddddd;
+}
+.jpo-table > table tr:nth-child(odd) {
+    background-color: #f3f3f3;
+}
+
+.jpo-table > .notes-section {
+    width: 100%;
+}
+
+.jpo-table > .notes-section > .notes-header {
+    font-size: 1.5rem;
+}
+
+.jpo-table > .notes-section > .notes-body {
+    margin-left: 1rem;
+}
+/***************************/
 
 #poc-table {
     height: 320px;
