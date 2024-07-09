@@ -143,8 +143,6 @@ h2.section-header {
 
 /***********************/
 .jpo-table {
-    /* height: 300px; */
-
     /* Style to center loader */
     display: flex;
     flex-direction: column;
