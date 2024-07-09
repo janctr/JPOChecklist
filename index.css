@@ -155,7 +155,20 @@ h2.section-header {
     font-size: 0.9rem;
 }
 
-.jpo-table * {
+.jpo-table.loading {
+    height: 300px;
+}
+
+.jpo-table > table {
+    order: 1;
+}
+
+.jpo-table > .notes-section {
+    order: 2;
+}
+
+.jpo-table > .miscellaneous-notes-section {
+    order: 3;
 }
 
 .jpo-table > table td,
@@ -175,7 +188,8 @@ h2.section-header {
     background-color: #f3f3f3;
 }
 
-.jpo-table > .notes-section {
+.jpo-table > .notes-section,
+.jpo-table > .miscellaneous-notes-section {
     width: 100%;
 }
 
@@ -183,8 +197,9 @@ h2.section-header {
     font-size: 1.5rem;
 }
 
-.jpo-table > .notes-section > .notes-body {
+.jpo-table .notes-body {
     margin-left: 1rem;
+    margin-bottom: 0.25rem;
 }
 /***************************/
 

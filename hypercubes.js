@@ -137,21 +137,28 @@ require(['js/qlik'], function (qlik) {
     }
 
     function populateExtraNotes(tableId, note) {
-        let notesSectionEl = $(`#${tableId} > .notes-section`);
+        let notesSectionEl = $(`#${tableId} > .miscellaneous-notes-section`);
 
         if (!notesSectionEl.length) {
             $(`#${tableId}`).append(
-                '<section class="notes-section"><h2 class="notes-header">Notes</h2></section>'
+                '<section class="miscellaneous-notes-section"></section>'
             );
 
-            notesSectionEl = $(`#${tableId} > .notes-section`);
+            notesSectionEl = $(`#${tableId} > .miscellaneous-notes-section`);
         }
 
-        console.log('tableElement for ', tableId, $(`#${tableId}`));
+        for (const parsedNote of parseExtraNotes(note)) {
+            notesSectionEl.append(`
+                <p class="notes-body">• ${parsedNote}</p>
+            `);
+        }
+    }
 
-        notesSectionEl.append(`
-            <p class="notes-body">This is from the notes table: ${note}</p>
-        `);
+    function parseExtraNotes(note) {
+        return note
+            .split('•')
+            .map((note) => note.trim())
+            .filter((note) => !!note);
     }
 
     function populateTable(qHyperCube, elementId) {
@@ -161,13 +168,12 @@ require(['js/qlik'], function (qlik) {
             console.log(`element: ${elementId} not found.`);
         }
 
-        tableContainerEl.empty();
+        $(`#${elementId} > table`).remove();
+        $(`#${elementId} > .notes-section`).remove();
 
         const headers = getTableHeadersWithoutNotes(qHyperCube);
         const data = getMatrixDataWithoutNotesColumn(qHyperCube);
         // const data = qHyperCube?.qDataPages[0]?.qMatrix;
-
-        console.log('data: ', data);
 
         const tableEl = $('<table>');
         const tableHeadEl = $('<thead>');
@@ -213,6 +219,14 @@ require(['js/qlik'], function (qlik) {
         }
     }
 
+    function addClass(selector, className) {
+        $(selector).addClass(className);
+    }
+
+    function removeClass(selector, className) {
+        $(selector).removeClass(className);
+    }
+
     const JPOSiteSurveyApp = qlik.openApp(
         '51302cfb-504c-4aad-8318-7e001ba8576a',
         config
@@ -225,8 +239,11 @@ require(['js/qlik'], function (qlik) {
 
         const hypercube = createHypercubeDefinition(tableDimensions);
 
+        addClass(`#${table.tableId}`, 'loading');
+
         JPOSiteSurveyApp.createCube(hypercube, (reply, app) => {
             console.log(`${table.table} cube: `, reply);
+            removeClass(`#${table.tableId}`, 'loading');
             populateTable(reply.qHyperCube, table.tableId);
         });
     }
@@ -239,11 +256,6 @@ require(['js/qlik'], function (qlik) {
 
     console.log('notesHyperCube: ', notesHypercube);
     JPOSiteSurveyApp.createCube(notesHypercube, (reply, app) => {
-        // console.log(`${table.table} cube: `, reply);
-        // populateTable(reply.qHyperCube, table.tableId);
-
-        console.log('notes hypercube: ', reply);
-
         const notes = reply.qHyperCube.qDataPages[0].qMatrix.map((row) => {
             const tableKey = row[0].qText;
             const note = row[1].qText;
@@ -258,10 +270,8 @@ require(['js/qlik'], function (qlik) {
                 (table) => table.notesTableKey === tableKey
             ).tableId;
 
-            console.log('tableId: ', tableId);
-
-            console.log('tableId: ', tableId, 'note: ', note);
             if (tableId && note) {
+                $(`#${tableId} > .miscellaneous-notes-section`).empty();
                 populateExtraNotes(tableId, note);
             }
         }
