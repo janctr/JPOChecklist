@@ -100,12 +100,13 @@ require(['js/qlik'], function (qlik) {
 
     function createNotesSectionElement(qHyperCube) {
         const tableNotesEl = $(
-            '<section class="notes-section"><h2 class="notes-header">Notes</h2></section>'
+            '<ul class="notes-section"><h2 class="notes-header">Notes</h2></ul>'
         );
 
         const notesIndex = getTableHeaders(qHyperCube).indexOf('Notes');
 
         if (notesIndex < 0) {
+            // If there are no notes don't render a notes section
             return;
         }
 
@@ -128,28 +129,10 @@ require(['js/qlik'], function (qlik) {
         }
 
         for (const note of notes) {
-            tableNotesEl.append(`<p class="notes-body">${note.qText}</p>`);
+            tableNotesEl.append(`<li class="notes-body">${note.qText}</li>`);
         }
 
         return tableNotesEl;
-    }
-
-    function populateExtraNotes(tableId, note) {
-        let notesSectionEl = $(`#${tableId} > .miscellaneous-notes-section`);
-
-        if (!notesSectionEl.length) {
-            $(`#${tableId}`).append(
-                '<section class="miscellaneous-notes-section"></section>'
-            );
-
-            notesSectionEl = $(`#${tableId} > .miscellaneous-notes-section`);
-        }
-
-        for (const parsedNote of parseExtraNotes(note)) {
-            notesSectionEl.append(`
-                <p class="notes-body">• ${parsedNote}</p>
-            `);
-        }
     }
 
     function parseExtraNotes(note) {
@@ -157,6 +140,10 @@ require(['js/qlik'], function (qlik) {
             .split('•')
             .map((note) => note.trim())
             .filter((note) => !!note);
+    }
+
+    function formatNumberWithCommas(num) {
+        return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
     }
 
     function populateTable(qHyperCube, elementId) {
@@ -199,6 +186,10 @@ require(['js/qlik'], function (qlik) {
                     cellData = ' - ';
                 }
 
+                if (typeof cellData === 'number') {
+                    cellData = formatNumberWithCommas(cellData);
+                }
+
                 tableRowEl.append(`<td>${cellData}</td>`);
             }
             tableBodyEl.append(tableRowEl);
@@ -218,6 +209,24 @@ require(['js/qlik'], function (qlik) {
 
         if (tableNotesEl) {
             containerWrapper.append(tableNotesEl);
+        }
+    }
+
+    function populateExtraNotes(tableId, note) {
+        let notesSectionEl = $(`#${tableId} > .miscellaneous-notes-section`);
+
+        if (!notesSectionEl.length) {
+            $(`#${tableId}`).append(
+                '<ul class="miscellaneous-notes-section"></ul>'
+            );
+
+            notesSectionEl = $(`#${tableId} > .miscellaneous-notes-section`);
+        }
+
+        for (const parsedNote of parseExtraNotes(note)) {
+            notesSectionEl.append(`
+                <li class="notes-body">${parsedNote}</li>
+            `);
         }
     }
 
