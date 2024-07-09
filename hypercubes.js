@@ -50,8 +50,6 @@ require(['js/qlik'], function (qlik) {
             })
             .filter((index) => index >= 0);
 
-        console.log('notesIndeces: ', notesIndeces);
-
         if (!notesIndeces.length) {
             return;
         }
@@ -169,17 +167,14 @@ require(['js/qlik'], function (qlik) {
         }
 
         $(`#${elementId} > table`).remove();
-        $(`#${elementId} > .notes-section`).remove();
 
         const headers = getTableHeadersWithoutNotes(qHyperCube);
         const data = getMatrixDataWithoutNotesColumn(qHyperCube);
-        // const data = qHyperCube?.qDataPages[0]?.qMatrix;
 
         const tableEl = $('<table>');
         const tableHeadEl = $('<thead>');
         const tableHeaderRowEl = $('<tr>');
         const tableBodyEl = $('<tbody>');
-        const tableNotesEl = createNotesSectionElement(qHyperCube);
 
         // Insert table headers
         tableHeadEl.append(tableHeaderRowEl);
@@ -209,13 +204,20 @@ require(['js/qlik'], function (qlik) {
             tableBodyEl.append(tableRowEl);
         }
 
-        // Insert notes section
-
         tableEl.append(tableHeadEl);
         tableEl.append(tableBodyEl);
         tableContainerEl.append(tableEl);
+    }
+
+    function populateNotes(qHyperCube, elementId) {
+        const containerWrapper = $(`#${elementId}`);
+
+        $(`#${elementId} > .notes-section`).remove();
+
+        const tableNotesEl = createNotesSectionElement(qHyperCube);
+
         if (tableNotesEl) {
-            tableContainerEl.append(tableNotesEl);
+            containerWrapper.append(tableNotesEl);
         }
     }
 
@@ -226,6 +228,8 @@ require(['js/qlik'], function (qlik) {
     function removeClass(selector, className) {
         $(selector).removeClass(className);
     }
+
+    // Load data
 
     const JPOSiteSurveyApp = qlik.openApp(
         '51302cfb-504c-4aad-8318-7e001ba8576a',
@@ -245,6 +249,7 @@ require(['js/qlik'], function (qlik) {
             console.log(`${table.table} cube: `, reply);
             removeClass(`#${table.tableId}`, 'loading');
             populateTable(reply.qHyperCube, table.tableId);
+            populateNotes(reply.qHyperCube, table.tableId);
         });
     }
 
