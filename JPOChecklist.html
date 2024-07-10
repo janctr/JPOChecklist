@@ -46,83 +46,107 @@
         </div>
     </nav>
 
-    <main class="content flex-container">
-        <div class="flex-container">
-            <div id="site-dropdown" class="has-loader no-print"></div>
-            <div id="site-title" class="has-loader"></div>
+    <main class="content flex-container flex-container-row">
+        <nav class="side-nav no-print">
+            <ul>
+                <li><a href="#contact-information">Contact Information</a></li>
+                <li><a href="#receipt-capabilities">Receipt Capabilities</a></li>
+                <li><a href="#refueling-pier-capabilities">Refueling Pier Capabilities</a></li>
+                <li><a href="#bulk-tank-storage-capabilities">Bulk Tank Storage Capabilities</a></li>
+                <li><a href="#fillstands">Fillstands</a></li>
+                <li><a href="#issue-capabilities">Issue Capabilities</a></li>
+                <li><a href="#hydrant-issue-capabilities">Hydrant Issue Capabilities</a></li>
+                <li><a href="#individual-mobile-issue-capabilities">Individual Mobile Issue Capabilities</a></li>
+                <li><a href="#sustained-max-issue-capabilities">Sustained/Max Issue Capabilities</a></li>
+                <li><a href="#additive-information">Additive Information</a></li>
+                <li><a href="#truck-information">Truck Information</a></li>
+                <li><a href="#miscellaneous-information">Miscellaneous Information</a></li>
+            </ul>
+        </nav>
+
+        <div class="main flex-container">
+            <div class="flex-container">
+                <div id="site-dropdown" class="has-loader no-print"></div>
+                <div id="site-title" class="has-loader"></div>
+            </div>
+            <h2 id="contact-information" class="section-header">(U) Contact Information</h2>
+            <div id="poc-table" class="jpo-table">
+                <svg version="1.1" id="L1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"
+                    style="background-color: inherit; margin: 0 auto; width: 50px; height: 50px;">
+                    <circle fill="none" stroke="#203a43" stroke-width="6" stroke-miterlimit="15"
+                        stroke-dasharray="14.2472,14.2472" cx="50" cy="50" r="47">
+                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="5s"
+                            from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                    </circle>
+                    <circle fill="none" stroke="#203a43" stroke-width="1" stroke-miterlimit="10"
+                        stroke-dasharray="10,10" cx="50" cy="50" r="39">
+                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="5s"
+                            from="0 50 50" to="-360 50 50" repeatCount="indefinite" />
+                    </circle>
+                    <g fill="#203a43">
+                        <rect x="30" y="35" width="5" height="30">
+                            <animateTransform attributeName="transform" dur="1s" type="translate"
+                                values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.1" />
+                        </rect>
+                        <rect x="40" y="35" width="5" height="30">
+                            <animateTransform attributeName="transform" dur="1s" type="translate"
+                                values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.2" />
+                        </rect>
+                        <rect x="50" y="35" width="5" height="30">
+                            <animateTransform attributeName="transform" dur="1s" type="translate"
+                                values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.3" />
+                        </rect>
+                        <rect x="60" y="35" width="5" height="30">
+                            <animateTransform attributeName="transform" dur="1s" type="translate"
+                                values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.4" />
+                        </rect>
+                        <rect x="70" y="35" width="5" height="30">
+                            <animateTransform attributeName="transform" dur="1s" type="translate"
+                                values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.5" />
+                        </rect>
+                    </g>
+                </svg>
+            </div>
+
+            <h2 id="receipt-capabilities" class="section-header">(U) Receipt Capabilities</h2>
+            <div id="receipt-table" class="jpo-table"></div>
+
+            <h2 id="refueling-pier-capabilities" class="section-header">(U) Refueling Pier Capabilities (as applicable)
+            </h2>
+            <div id="refuel-table" class="jpo-table"></div>
+            <div id="refuel-notes-table" class="jpo-table"></div>
+
+            <h2 id="bulk-tank-storage-capabilities" class="section-header">(U) Bulk Tank Storage Capabilities</h2>
+            <div id="bulk-table" class="jpo-table"></div>
+
+            <h2 id="fillstands" class="section-header">(U) Fillstands</h2>
+            <div id="fillstand-table" class="jpo-table"></div>
+
+            <h1 id="issue-capabilities" class="section-header issue-capabilities-table">(U) Issue Capabilities</h1>
+
+            <h2 id="hydrant-issue-capabilities" class="section-header">(U) Hydrant Issue Capabilities</h2>
+            <div id="hydrant-table" class="jpo-table"></div>
+
+            <h2 id="individual-mobile-issue-capabilities" class="section-header">(U) Individual Mobile Issue
+                Capabilities</h2>
+            <div id="mobile-table" class="jpo-table"></div>
+
+            <h2 id="sustained-max-issue-capabilities" class="section-header">(U) Sustained / Maximum Issue Capabilities
+            </h2>
+            <div id="sus-max-table" class="jpo-table"></div>
+
+            <h2 id="additive-information" class="section-header">(U) Additive Information</h2>
+            <div id="additive-table" class="jpo-table"></div>
+
+            <h2 id="truck-information" class="section-header">(U) Truck Information</h2>
+            <div id="truck-table" class="jpo-table"></div>
+
+            <h2 id="miscellaneous-information" class="section-header">(U) Other Miscellaneous Information</h2>
+            <div id="miscellaneous-notes" class="jpo-table"></div>
+
         </div>
-        <h2 class="section-header">(U) Contact Information</h2>
-        <div id="poc-table" class="jpo-table">
-            <svg version="1.1" id="L1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"
-                style="background-color: inherit; margin: 0 auto; width: 50px; height: 50px;">
-                <circle fill="none" stroke="#203a43" stroke-width="6" stroke-miterlimit="15"
-                    stroke-dasharray="14.2472,14.2472" cx="50" cy="50" r="47">
-                    <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="5s"
-                        from="0 50 50" to="360 50 50" repeatCount="indefinite" />
-                </circle>
-                <circle fill="none" stroke="#203a43" stroke-width="1" stroke-miterlimit="10" stroke-dasharray="10,10"
-                    cx="50" cy="50" r="39">
-                    <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="5s"
-                        from="0 50 50" to="-360 50 50" repeatCount="indefinite" />
-                </circle>
-                <g fill="#203a43">
-                    <rect x="30" y="35" width="5" height="30">
-                        <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5"
-                            repeatCount="indefinite" begin="0.1" />
-                    </rect>
-                    <rect x="40" y="35" width="5" height="30">
-                        <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5"
-                            repeatCount="indefinite" begin="0.2" />
-                    </rect>
-                    <rect x="50" y="35" width="5" height="30">
-                        <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5"
-                            repeatCount="indefinite" begin="0.3" />
-                    </rect>
-                    <rect x="60" y="35" width="5" height="30">
-                        <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5"
-                            repeatCount="indefinite" begin="0.4" />
-                    </rect>
-                    <rect x="70" y="35" width="5" height="30">
-                        <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5"
-                            repeatCount="indefinite" begin="0.5" />
-                    </rect>
-                </g>
-            </svg>
-        </div>
 
-        <h2 class="section-header">(U) Receipt Capabilities</h2>
-        <div id="receipt-table" class="jpo-table"></div>
-
-        <h2 class="section-header">(U) Refueling Pier Capabilities (as applicable)</h2>
-        <div id="refuel-table" class="jpo-table"></div>
-        <div id="refuel-notes-table" class="jpo-table"></div>
-
-        <h2 class="section-header">(U) Bulk Tank Storage Capabilities</h2>
-        <div id="bulk-table" class="jpo-table"></div>
-
-        <h2 class="section-header">(U) Fillstands</h2>
-        <div id="fillstand-table" class="jpo-table"></div>
-
-        <h1 class="section-header issue-capabilities-table">(U) Issue Capabilities</h1>
-
-        <h2 class="section-header">(U) Hydrant Issue Capabilities</h2>
-        <div id="hydrant-table" class="jpo-table"></div>
-
-        <h2 class="section-header">(U) Individual Mobile Issue Capabilities</h2>
-        <div id="mobile-table" class="jpo-table"></div>
-
-        <h2 class="section-header">(U) Sustained / Maximum Issue Capabilities</h2>
-        <div id="sus-max-table" class="jpo-table"></div>
-
-        <h2 class="section-header">(U) Additive Information</h2>
-        <div id="additive-table" class="jpo-table"></div>
-
-        <h2 class="section-header">(U) Truck Information</h2>
-        <div id="truck-table" class="jpo-table"></div>
-
-        <h2 class="section-header">(U) Other Miscellaneous Information</h2>
-        <div id="miscellaneous-notes" class="jpo-table"></div>
     </main>
 
     <!--Error Popup-->

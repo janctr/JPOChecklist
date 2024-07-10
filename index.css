@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 .flex-container {
@@ -8,7 +9,7 @@
     gap: 1rem;
 }
 
-.flex-container.row {
+.flex-container-row {
     flex-direction: row;
 }
 
@@ -79,12 +80,49 @@
 .content {
     /* height: calc(100vh - 40px); */
     width: 100%; /* 210mm; 226mm 228mm*/
-    max-width: 333mm;
+    max-width: calc(333mm + 1rem + 220px);
     margin: 0 auto;
     padding: 2rem;
 
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; */
+    scroll-behavior: smooth;
+}
+
+.side-nav {
+    position: sticky;
+    /* left: 27px; */
+    top: 2rem;
+    width: 300px;
+    height: 500px;
+}
+
+.side-nav > ul {
+    list-style: none;
+}
+
+.side-nav > ul > li {
+    margin-bottom: 0.25rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.side-nav > ul > li:hover {
+    background-color: #efefef;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.side-nav > ul > li > a {
+    display: block;
+    width: 100%;
+}
+.side-nav > ul > li > a:hover {
+    text-decoration: none;
+}
+
+.main {
+    width: 100%;
+    max-width: 333mm;
 }
 
 .qlik_object {
@@ -120,11 +158,12 @@
     text-align: center;
     color: #fff;
 
-    font-size: 2rem;
+    display: flex;
+    align-items: center;
+
+    font-size: 1.5rem;
     padding: 10px 0;
 }
-
-/*** Qlik elements ***/
 
 #site-dropdown {
     height: 36px;
@@ -135,13 +174,12 @@
 }
 
 h1.section-header {
-    font-size: 2rem;
-}
-h2.section-header {
     font-size: 1.75rem;
 }
+h2.section-header {
+    font-size: 1.5rem;
+}
 
-/***********************/
 .jpo-table {
     /* Style to center loader */
     display: flex;
@@ -194,7 +232,7 @@ h2.section-header {
 }
 
 .jpo-table > .notes-section > .notes-header {
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .jpo-table .notes-body {
@@ -236,7 +274,3 @@ h2.section-header {
     display: flex;
     align-items: center;
 }
-
-/* .content > div {
-    height: 1000px;
-} */

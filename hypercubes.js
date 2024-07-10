@@ -212,19 +212,23 @@ require(['js/qlik'], function (qlik) {
         }
     }
 
-    function populateExtraNotes(tableId, note) {
-        let notesSectionEl = $(`#${tableId} > .miscellaneous-notes-section`);
+    function populateMiscellaneousNotes(tableId, note) {
+        let miscellaneousNotesSectionEl = $(
+            `#${tableId} > .miscellaneous-notes-section`
+        );
 
-        if (!notesSectionEl.length) {
+        if (!miscellaneousNotesSectionEl.length) {
             $(`#${tableId}`).append(
                 '<ul class="miscellaneous-notes-section"></ul>'
             );
 
-            notesSectionEl = $(`#${tableId} > .miscellaneous-notes-section`);
+            miscellaneousNotesSectionEl = $(
+                `#${tableId} > .miscellaneous-notes-section`
+            );
         }
 
         for (const parsedNote of parseExtraNotes(note)) {
-            notesSectionEl.append(`
+            miscellaneousNotesSectionEl.append(`
                 <li class="notes-body">${parsedNote}</li>
             `);
         }
@@ -238,7 +242,15 @@ require(['js/qlik'], function (qlik) {
         $(selector).removeClass(className);
     }
 
-    // Load data
+    /**************************************/
+    /**************************************/
+    /**************************************/
+    /**************************************/
+    /**************************************/
+    /**************************************/
+    /**************************************/
+
+    // Load app
 
     const JPOSiteSurveyApp = qlik.openApp(
         '51302cfb-504c-4aad-8318-7e001ba8576a',
@@ -286,7 +298,7 @@ require(['js/qlik'], function (qlik) {
 
             if (tableId && note) {
                 $(`#${tableId} > .miscellaneous-notes-section`).empty();
-                populateExtraNotes(tableId, note);
+                populateMiscellaneousNotes(tableId, note);
             }
         }
     });

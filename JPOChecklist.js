@@ -24,9 +24,6 @@ require.config({
         (config.port ? ':' + config.port : '') +
         config.prefix +
         'resources',
-    // paths: {
-    //     appControllerModule: '../extensions/JIRAMashup/AppController',
-    // },
 });
 
 require(['js/qlik'], function (qlik) {
@@ -61,45 +58,9 @@ require(['js/qlik'], function (qlik) {
         });
     });
 
-    $('#gantt-chart').addClass('loading');
-    $('#update-table').addClass('loading');
-    $('#apps-in-development-kpi').addClass('loading');
-    $('#apps-in-ioc-kpi').addClass('loading');
-
     setInterval(() => {
         const buttonElements = $('#xrwamkt_content button');
         const printButtonHeaderElement = $('header#xrwamkt_title');
-
-        /* These containers have loaders */
-        const ganttChartElement = $('#nMpQZM_content');
-        const updateTableElement = $(
-            '#74bba754-a43f-47bb-902f-f4f645aace1c_content'
-        );
-        const appsInDevelopmentKpiElemenet = $(
-            '#831ebd2f-4fd0-49b7-b827-5b80182b67a3_content'
-        );
-        const appsInIocKpiElemenet = $(
-            '#253c0677-a625-4fc9-8f34-3645e209692f_content'
-        );
-        /*********************************/
-
-        /* Remove loaders once elements has finished loading */
-        if (ganttChartElement.length) {
-            $('#gantt-chart').removeClass('loading');
-        }
-
-        if (updateTableElement.length) {
-            $('#update-table').removeClass('loading');
-        }
-
-        if (appsInDevelopmentKpiElemenet.length) {
-            $('#apps-in-development-kpi').removeClass('loading');
-        }
-
-        if (appsInIocKpiElemenet.length) {
-            $('#apps-in-ioc-kpi').removeClass('loading');
-        }
-        /*********************************************/
 
         /* Style Export to PDF button */
         if (printButtonHeaderElement.length) {
