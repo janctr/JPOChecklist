@@ -199,6 +199,8 @@ h2.section-header {
 
 .jpo-table > table {
     order: 1;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 .jpo-table > .notes-section {
@@ -229,6 +231,9 @@ h2.section-header {
 .jpo-table > .notes-section,
 .jpo-table > .miscellaneous-notes-section {
     width: 100%;
+    background-color: #ddcb9f;
+    padding: 1rem;
+    border-radius: 6px;
 }
 
 .jpo-table > .notes-section > .notes-header {
