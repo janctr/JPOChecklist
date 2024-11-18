@@ -36,10 +36,12 @@ require(['js/qlik'], function (qlik) {
     });
 
     //open apps -- inserted here --
-    const JPOSiteSurveyApp = qlik.openApp(
-        '51302cfb-504c-4aad-8318-7e001ba8576a',
-        config
-    );
+
+    const isSipr = window.location.href.includes('smil');
+    const appId = isSipr
+        ? '4a9a4e8b-4c60-43a5-b8ac-8cfed828358e'
+        : '51302cfb-504c-4aad-8318-7e001ba8576a';
+    const JPOSiteSurveyApp = qlik.openApp(appId, config);
 
     //get objects -- inserted here --
     [

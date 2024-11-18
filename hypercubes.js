@@ -27,6 +27,14 @@ require.config({
 });
 
 require(['js/qlik'], function (qlik) {
+    const isSipr = window.location.href.includes('smil');
+    const appId = isSipr
+        ? '4a9a4e8b-4c60-43a5-b8ac-8cfed828358e'
+        : '51302cfb-504c-4aad-8318-7e001ba8576a';
+
+    // Load app
+    const JPOSiteSurveyApp = qlik.openApp(appId, config);
+
     function getTableHeaders(qHyperCube) {
         return qHyperCube.qDimensionInfo.map(
             (dimension) => dimension.qAlias || dimension.qFallbackTitle
@@ -250,13 +258,6 @@ require(['js/qlik'], function (qlik) {
     /**************************************/
     /**************************************/
 
-    // Load app
-
-    const JPOSiteSurveyApp = qlik.openApp(
-        '51302cfb-504c-4aad-8318-7e001ba8576a',
-        config
-    );
-
     for (const table of tables) {
         const tableDimensions = createHypercubeDimensionsDefinition(
             table.dimensions
@@ -373,9 +374,9 @@ const tables = [
         notesTableKey: 'Bulk_Tank_Storage_Capabilities',
         dimensions: [
             // { column: 'bulk_row', name: '' },
+            { column: 'tank_no', name: 'Tank #' },
             { column: 'tank_product', name: 'Product' },
             // { column: 'Site', name: '' },
-            { column: 'tank_no', name: 'Tank #' },
             { column: 'tank_capacity', name: 'Max Capacity (USG)' },
             { column: 'storage_operating', name: 'Storage/Operating' },
             { column: 'tank_type', name: 'Type' },
