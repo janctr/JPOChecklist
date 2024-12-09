@@ -39,7 +39,7 @@ require(['js/qlik'], function (qlik) {
 
     const isSipr = window.location.href.includes('smil');
     const appId = isSipr
-        ? '4a9a4e8b-4c60-43a5-b8ac-8cfed828358e'
+        ? '30961999-b263-42e1-b4aa-5bf23fa315cd'
         : '51302cfb-504c-4aad-8318-7e001ba8576a';
     const JPOSiteSurveyApp = qlik.openApp(appId, config);
 
@@ -49,10 +49,12 @@ require(['js/qlik'], function (qlik) {
             elementId: 'site-title',
             objectId: '031006f5-91c7-4826-a6c9-001dbbb206ae',
         },
-        { elementId: 'site-dropdown', objectId: 'GQZpH' },
+        { elementId: 'site-dropdown', objectId: isSipr ? 'vrSjt' : 'GQZpH' },
         {
             elementId: 'poc-table',
-            objectId: '22df8fa4-9cf9-4797-a954-0612647bf3dd',
+            objectId: isSipr
+                ? 'dabe8786-0c4f-4a2e-9a19-b6e38a5090c1'
+                : '22df8fa4-9cf9-4797-a954-0612647bf3dd',
         },
     ].forEach((o) => {
         JPOSiteSurveyApp.getObject(o.elementId, o.objectId, {

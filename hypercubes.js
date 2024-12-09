@@ -29,7 +29,7 @@ require.config({
 require(['js/qlik'], function (qlik) {
     const isSipr = window.location.href.includes('smil');
     const appId = isSipr
-        ? '4a9a4e8b-4c60-43a5-b8ac-8cfed828358e'
+        ? '30961999-b263-42e1-b4aa-5bf23fa315cd'
         : '51302cfb-504c-4aad-8318-7e001ba8576a';
 
     // Load app

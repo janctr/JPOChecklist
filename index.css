@@ -125,6 +125,18 @@
     max-width: 333mm;
 }
 
+/* Banner marking */
+
+.banner-marking {
+    width: 100%;
+    height: 1.5rem;
+    background-color: purple;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+}
+/**********************/
+
 .qlik_object {
     margin: 0;
     height: auto;
